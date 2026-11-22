@@ -166,7 +166,7 @@
 
 
 
-# მეთოდი .replace()
+# # მეთოდი .replace()
 # st = "1 2 3 4 5 6 7 8 9 0"
 # print(st.replace('5', 'five'))
 
@@ -174,7 +174,7 @@
 # print(st.replace('5', 'five', 2), "\n")
 
 
-# სტრიქონის სიგრძე (სმბოლოების რაოდენობა) – ფუნქცია len()
+# # სტრიქონის სიგრძე (სმბოლოების რაოდენობა) – ფუნქცია len()
 # st = "My first commit"
 # print(len(st), "\n")
 
@@ -215,6 +215,28 @@
 
 
 
+# # მეთოდი .split()
+# text = '     Python is programming language     '
+# print(text.split(), "\n")
+# print(text.split(' '))
+
+
+
+# # მეთოდი .join()
+
+# # სრიქონების სია გარდავქმნათ ერთიან სტრიქონად.
+
+# # ["Paata", "Teona", "Demetre", "Alexandre"]   =====> list
+# # Users: Paata, Teona, Demetre, Alexandre      =====> str
+
+# users = ["Paata", "Teona", "Demetre", "Alexandre"]
+# print(users, type(users), "\n")
+
+# context = "Users: " + ', '.join(users)
+# print(context, type(context))
+
+
+
 # ოპერატორი in
 
 # შევამოწმოთ არის თუ არა სიმბოლო ან ქვესტრიქონი სტრიქონში
@@ -242,12 +264,143 @@
 
 
 # f`-სტრიქონი – f-string
-first_name = input("First neme: ")
-last_name = input("last neme: ")
-profession = "Programmer, Poligraf designer"
-country = "Georgia"
-city = "Tbilisi"
+# first_name = input("First neme: ")
+# last_name = input("last neme: ")
+# profession = "Programmer, Poligraf designer"
+# country = "Georgia"
+# city = "Tbilisi"
 
-print("\nWelcome", first_name, last_name, ". I am from", country, ". The capital of Georgia is", city, ".")
-print("\nWelcome " + first_name + " " + last_name + ". I am from " + country + ". The capital of Georgia is " + city + ".")
-print(f"\nWelcome {first_name} {last_name}. I am from {country}. The capital of georgia is {city}.")
+# print("\nWelcome", first_name, last_name, ". I am from", country, ". The capital of Georgia is", city, ".")
+# print("\nWelcome " + first_name + " " + last_name + ". I am from " + country + ". The capital of Georgia is " + city + ".")
+# print(f"\nWelcome {first_name} {last_name}. I am from {country}. The capital of georgia is {city}.")
+
+
+
+# num1 = 10
+# num2 = 20
+
+# print(f"{num1} + {num2} = {num1 + num2}")
+# print(f"{num1} - {num2} = {num1 - num2}")
+# print(f"{num1} * {num2} = {num1 * num2}")
+# print(f"{num1} / {num2} = {num1 / num2}")
+# print(f"{num1} // {num2} = {num1 // num2}")
+# print(f"{num1} % {num2} = {num1 % num2}")
+
+
+
+
+# რიცხვითი მონაცემების ფორმატირება
+# x = 12.345678
+
+# print(f"{x:.2f}")
+# print(f"{x:.3f}")
+# print(f"{x:.4f}\n")
+
+# x = 0.85
+# print(f"{x:.1%}")
+# print(f"{x:.2%}")
+# print(f"{x:.3%}")
+# print(f"{1.85:.2%}\n")
+
+# x = 10 ** 9
+# print(f"{x:,}")
+
+
+
+# # Regular Expressions Regex
+
+# import re
+
+# text = "My contacts is 555-123-4567"
+
+# pattern = r"\d{3}-\d{3}-\d{4}"
+
+# match = re.search(pattern, text)
+
+# print(match.group(0))
+
+
+
+
+# # ჯგუფებიანი Regex-ის პრაქტიკული მაგალითი
+
+# # ვთქვათ, გვინდა ტელეფონის ნომრის ნაწილებად მიღება:
+
+# import re
+
+# text = "555-123-4567"
+
+# pattern = r"(\d{3})-(\d{3})-(\d{4})"
+
+# match = re.search(pattern, text)
+
+# area_code = match.group(1)
+# prefix = match.group(2)
+# line_number = match.group(3)
+
+# print(area_code)
+# print(prefix)
+# print(line_number)
+
+
+
+
+
+# # სახელებიანი ჯგუფები
+
+# # უფრო პროფესიონალური ვარიანტია:
+
+# import re
+
+# text = "555-123-4567"
+
+# pattern = r"(?P<code>\d{3})-(?P<prefix>\d{3})-(?P<number>\d{4})"
+
+# match = re.search(pattern, text)
+
+# print(match.group("code"))
+# print(match.group("prefix"))
+# print(match.group("number"))
+
+# # აქ უკვე group(1)-ის დამახსოვრება აღარ გვჭირდება, რადგან სახელებით მივმართავთ.
+
+
+
+
+
+# import re
+
+# phone = input("შეიყვანე ტელეფონის ნომერი: ")
+
+# pattern = r"^\d{3}-\d{3}-\d{4}$"
+
+# if re.match(pattern, phone):
+#   print("ტელეფონის ნომერი სწორია")
+# else:
+#   print("ტელეფონის ნომერი არასწორია")
+
+
+
+
+
+# ქვეყნის კოდი +995 დავამატოთ
+
+# import re
+
+# phone = input("შეიყვანე ტელეფონის ნომერი (+995 555 25 89 00): ")
+
+# pattern = r"^\+\d{3} \d{3} \d{2} \d{2} \d{2}$"
+# pattern = r"^\+\d{3}\s\d{3}\s\d{2}\s\d{2}\s\d{2}$"
+
+# print(re.match(pattern, phone).group())
+
+
+
+import re
+
+phone = input("შეიყვანე ტელეფონის ნომერი ((+995) 555 25 89 00): ")
+
+pattern = r"^\(\+\d{3}\) \d{3} \d{2} \d{2} \d{2}$"
+pattern = r"^\(\+\d{3}\)\s\d{3}\s\d{2}\s\d{2}\s\d{2}$"
+
+print(re.match(pattern, phone).group())
